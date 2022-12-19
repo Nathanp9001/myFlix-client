@@ -25273,7 +25273,7 @@ var _colDefault = parcelHelpers.interopDefault(_col);
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
-var _registrationView = require("../registration-view/registration-view");
+var _signupView = require("../signup-view/signup-view");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -25376,7 +25376,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../registration-view/registration-view":"aP2YV","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../signup-view/signup-view":"1N5aj","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"iYoWk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Axios", ()=>Axios
@@ -29738,7 +29738,7 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
-function LoginView(props) {
+const LoginView = ()=>{
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
@@ -29752,7 +29752,7 @@ function LoginView(props) {
             fileName: "src/components/login-view/login-view.jsx",
             lineNumber: 18
         },
-        __self: this,
+        __self: undefined,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
                 controlId: "formUsername",
@@ -29760,14 +29760,14 @@ function LoginView(props) {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 19
                 },
-                __self: this,
+                __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 20
                         },
-                        __self: this,
+                        __self: undefined,
                         children: "Username"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
@@ -29778,7 +29778,7 @@ function LoginView(props) {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 21
                         },
-                        __self: this
+                        __self: undefined
                     })
                 ]
             }),
@@ -29788,14 +29788,14 @@ function LoginView(props) {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 24
                 },
-                __self: this,
+                __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 25
                         },
-                        __self: this,
+                        __self: undefined,
                         children: "Password"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
@@ -29806,7 +29806,7 @@ function LoginView(props) {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 26
                         },
-                        __self: this
+                        __self: undefined
                     })
                 ]
             }),
@@ -29818,7 +29818,7 @@ function LoginView(props) {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 28
                 },
-                __self: this,
+                __self: undefined,
                 children: "Submit"
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -29828,12 +29828,12 @@ function LoginView(props) {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 29
                 },
-                __self: this,
+                __self: undefined,
                 children: "Sign up"
             })
         ]
     }));
-}
+};
 _s(LoginView, "Uz0+NXL0Cmp5Pn1AtssalVIVFlM=");
 _c = LoginView;
 LoginView.propTypes = {
@@ -31508,21 +31508,7 @@ MovieCard.propTypes = {
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
-}; // export class MovieCard extends React.Component {
- //   render() {
- //     const { movie, onMovieClick } = this.props;
- //     return (
- //       <Card>
- //         <Card.Img variant="top" src={movie.ImagePath} />
- //         <Card.Body>
- //           <Card.Title>{movie.Title}</Card.Title>
- //           <Card.Text>{movie.Description}</Card.Text>
- //           <Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
- //         </Card.Body>
- //       </Card>
- //     );
- //   }
- // }
+};
 var _c;
 $RefreshReg$(_c, "MovieCard");
 
@@ -31784,22 +31770,22 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"aP2YV":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8dd4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"1N5aj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0b8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8dd4.prelude(module);
+$parcel$ReactRefreshHelpers$0b8e.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
+parcelHelpers.export(exports, "SignupView", ()=>SignupView
 );
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
-const RegistrationView = ()=>{
+const SignupView = ()=>{
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
@@ -31833,14 +31819,14 @@ const RegistrationView = ()=>{
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         onSubmit: handleSubmit,
         __source: {
-            fileName: "src/components/registration-view/registration-view.jsx",
+            fileName: "src/components/signup-view/signup-view.jsx",
             lineNumber: 42
         },
         __self: undefined,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("h1", {
                 __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
+                    fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 43
                 },
                 __self: undefined,
@@ -31848,7 +31834,7 @@ const RegistrationView = ()=>{
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
+                    fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 44
                 },
                 __self: undefined,
@@ -31861,7 +31847,7 @@ const RegistrationView = ()=>{
                         ,
                         required: true,
                         __source: {
-                            fileName: "src/components/registration-view/registration-view.jsx",
+                            fileName: "src/components/signup-view/signup-view.jsx",
                             lineNumber: 46
                         },
                         __self: undefined
@@ -31870,7 +31856,7 @@ const RegistrationView = ()=>{
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
+                    fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 48
                 },
                 __self: undefined,
@@ -31883,7 +31869,7 @@ const RegistrationView = ()=>{
                         ,
                         required: true,
                         __source: {
-                            fileName: "src/components/registration-view/registration-view.jsx",
+                            fileName: "src/components/signup-view/signup-view.jsx",
                             lineNumber: 50
                         },
                         __self: undefined
@@ -31892,7 +31878,7 @@ const RegistrationView = ()=>{
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
+                    fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 52
                 },
                 __self: undefined,
@@ -31905,7 +31891,7 @@ const RegistrationView = ()=>{
                         ,
                         required: true,
                         __source: {
-                            fileName: "src/components/registration-view/registration-view.jsx",
+                            fileName: "src/components/signup-view/signup-view.jsx",
                             lineNumber: 54
                         },
                         __self: undefined
@@ -31914,7 +31900,7 @@ const RegistrationView = ()=>{
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
+                    fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 56
                 },
                 __self: undefined,
@@ -31927,7 +31913,7 @@ const RegistrationView = ()=>{
                         ,
                         required: true,
                         __source: {
-                            fileName: "src/components/registration-view/registration-view.jsx",
+                            fileName: "src/components/signup-view/signup-view.jsx",
                             lineNumber: 58
                         },
                         __self: undefined
@@ -31937,7 +31923,7 @@ const RegistrationView = ()=>{
             /*#__PURE__*/ _jsxRuntime.jsx("button", {
                 type: "submit",
                 __source: {
-                    fileName: "src/components/registration-view/registration-view.jsx",
+                    fileName: "src/components/signup-view/signup-view.jsx",
                     lineNumber: 60
                 },
                 __self: undefined,
@@ -31949,12 +31935,12 @@ const RegistrationView = ()=>{
  //   onRegistration: PropTypes.func.isRequired,
  // };
 ;
-_s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
-_c = RegistrationView;
+_s(SignupView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_c = SignupView;
 var _c;
-$RefreshReg$(_c, "RegistrationView");
+$RefreshReg$(_c, "SignupView");
 
-  $parcel$ReactRefreshHelpers$8dd4.postlude(module);
+  $parcel$ReactRefreshHelpers$0b8e.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

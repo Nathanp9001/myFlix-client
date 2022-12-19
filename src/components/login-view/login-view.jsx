@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
 
-export function LoginView(props) {
+export const LoginView = () => {
   const [ username, setUsername] = useState('');
   const [ password, setPassword] = useState('');
 

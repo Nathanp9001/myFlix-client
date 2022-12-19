@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 // import PropTypes from 'prop-types';
 
-export const RegistrationView = () => {
+export const SignupView = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
