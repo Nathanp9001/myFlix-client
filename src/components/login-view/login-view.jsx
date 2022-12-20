@@ -8,11 +8,36 @@ export const LoginView = () => {
   const [ username, setUsername] = useState('');
   const [ password, setPassword] = useState('');
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    props.onLoggedIn(username);
+    // console.log(username, password);
   };
+
+  // const data = {
+  //   Username: username,
+  //   Password: password
+  // };
+
+  // fetch("https://myflixdb9001.herokuapp.com/login", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify(data)
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     console.log("Login response: ", data);
+  //     if (data.user) {
+  //       onLoggedIn(data.user, data.token);
+  //     } else {
+  //       alert("No such user");
+  //     }
+  //   })
+  //   .catch((e) => {
+  //     alert("Something went wrong");
+  //   });
 
   return (
     <Form>
