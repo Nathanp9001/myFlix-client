@@ -43,19 +43,39 @@ return (
     <h1>Create Account</h1>
     <Form.Group>
       <Form.Label>Username:</Form.Label>
-      <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} required />
+      <Form.Control 
+      type="username" 
+      value={username} 
+      onChange={e => setUsername(e.target.value)} 
+      required 
+      />
     </Form.Group>
     <Form.Group>
       <Form.Label>Password:</Form.Label>
-      <Form.Control type="text" value={password} onChange={e => setPassword(e.target.value)} required />
+      <Form.Control 
+      type="password" 
+      value={password} 
+      onChange={e => setPassword(e.target.value)} 
+      required 
+      />
     </Form.Group>
     <Form.Group>
       <Form.Label>Email</Form.Label>
-      <Form.Control type="text" value={email} onChange={e => setEmail(e.target.value)} required />
+      <Form.Control 
+      type="text" 
+      value={email} 
+      onChange={e => setEmail(e.target.value)} 
+      required 
+      />
     </Form.Group>
     <Form.Group>
       <Form.Label>Birthday</Form.Label>
-      <Form.Control type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} required />
+      <Form.Control 
+      type="birthday" 
+      value={birthday} 
+      onChange={e => setBirthday(e.target.value)} 
+      required 
+      />
     </Form.Group>
     <Button type="submit">Sign up</Button>
   </Form>

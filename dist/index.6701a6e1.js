@@ -27787,7 +27787,7 @@ const SignupView = ()=>{
                         children: "Username:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "text",
+                        type: "username",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value)
                         ,
@@ -27803,27 +27803,27 @@ const SignupView = ()=>{
             /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
                 __source: {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 48
+                    lineNumber: 53
                 },
                 __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 49
+                            lineNumber: 54
                         },
                         __self: undefined,
                         children: "Password:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "text",
+                        type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value)
                         ,
                         required: true,
                         __source: {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 50
+                            lineNumber: 55
                         },
                         __self: undefined
                     })
@@ -27832,14 +27832,14 @@ const SignupView = ()=>{
             /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
                 __source: {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 52
+                    lineNumber: 62
                 },
                 __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 53
+                            lineNumber: 63
                         },
                         __self: undefined,
                         children: "Email"
@@ -27852,7 +27852,7 @@ const SignupView = ()=>{
                         required: true,
                         __source: {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 54
+                            lineNumber: 64
                         },
                         __self: undefined
                     })
@@ -27861,14 +27861,14 @@ const SignupView = ()=>{
             /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
                 __source: {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 56
+                    lineNumber: 71
                 },
                 __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 57
+                            lineNumber: 72
                         },
                         __self: undefined,
                         children: "Birthday"
@@ -27881,7 +27881,7 @@ const SignupView = ()=>{
                         required: true,
                         __source: {
                             fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 58
+                            lineNumber: 73
                         },
                         __self: undefined
                     })
@@ -27891,7 +27891,7 @@ const SignupView = ()=>{
                 type: "submit",
                 __source: {
                     fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 60
+                    lineNumber: 80
                 },
                 __self: undefined,
                 children: "Sign up"
