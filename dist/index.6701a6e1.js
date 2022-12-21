@@ -25264,7 +25264,6 @@ parcelHelpers.export(exports, "MainView", ()=>MainView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-// import axios from 'axios';
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
@@ -25272,36 +25271,55 @@ var _colDefault = parcelHelpers.interopDefault(_col);
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
+var _signupView = require("../signup-view/signup-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = _react.useState([]);
     const [selectedMovie, setSelectedMovie] = _react.useState(null);
-    const [user, setUser] = _react.useState(null);
+    const [user, setUser] = _react.useState(storedUser ? storedUser : null);
+    const [token, setToken] = _react.useState(storedToken ? storedToken : null);
     _react.useEffect(()=>{
-        fetch("https://myflixdb9001.herokuapp.com/movies").then((response)=>response.json()
-        ).then((data)=>{
-            const moviesFromApi = data.docs.map((doc)=>{
-                return {
-                    id: doc.key,
-                    title: doc.title,
-                    author: doc.director_name?.[0]
-                };
-            });
-            setMovies(moviesFromApi);
+        if (!token) return;
+        fetch("https://myflixdb9001.herokuapp.com/movies", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>response.json()
+        ).then((movies1)=>{
+            setMovies(movies1);
         });
-    }, []);
-    // setSelectedMovie(movie) 
-    //   this.setState({
-    //     selectedMovie: movie
-    //   });
-    // onLoggedIn(user) 
-    //   this.setState({
-    //     user
-    //   });
-    // const { movies, selectedMovie, user } = this.state;
-    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-        onLoggedIn: (user1)=>setUser(user1)
+    }, [
+        token
+    ]);
+    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                onLoggedIn: (user1, token1)=>{
+                    setUser(user1);
+                    setToken(token1);
+                },
+                __source: {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 39
+                },
+                __self: undefined
+            }),
+            "or",
+            /*#__PURE__*/ _jsxRuntime.jsx(_signupView.SignupView, {
+                __source: {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 46
+                },
+                __self: undefined
+            })
+        ]
+    }));
+    if (selectedMovie) return(/*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+        movie: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
         ,
         __source: {
             fileName: "src/components/main-view/main-view.jsx",
@@ -25309,82 +25327,63 @@ const MainView = ()=>{
         },
         __self: undefined
     }));
-    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-        __source: {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 57
-        },
-        __self: undefined,
-        children: "The list is empty!"
-    }));
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-        className: "main-view justify-content-md-center",
-        __source: {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 61
-        },
-        __self: undefined,
-        children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-            md: 8,
+    _react.useEffect(()=>{
+        if (!token) return;
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 64
+                lineNumber: 63
             },
             __self: undefined,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                movie: selectedMovie,
-                onBackClick: (newSelectedMovie)=>{
-                    undefined.setSelectedMovie(newSelectedMovie);
+            children: "The list is empty!"
+        }));
+        fetch("https://myflixmoviedb.herokuapp.com/movies", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>response.json()
+        ).then((data)=>{
+            console.log(data);
+        });
+    }, [
+        token
+    ]);
+    /*#__PURE__*/ _jsxRuntime.jsx("button", {
+        onClick: ()=>{
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
+        },
+        __source: {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 75
+        },
+        __self: undefined,
+        children: "Logout"
+    });
+    return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        __source: {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 78
+        },
+        __self: undefined,
+        children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 65
+                    lineNumber: 80
                 },
                 __self: undefined
-            })
-        }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                md: 3,
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 69
-                },
-                __self: undefined,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie,
-                    onMovieClick: (newSelectedMovie)=>{
-                        undefined.setSelectedMovie(newSelectedMovie);
-                    },
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 70
-                    },
-                    __self: undefined
-                }, movie._id)
-            })
+            }, movie.id)
         )
     }));
 };
-_s(MainView, "AA2Lbd5vppiQn5Rpxq/geFPiCys=");
+_s(MainView, "cNRCc0B/KwSJbALQvub/2w/FFgc=");
 _c = MainView;
-exports.default = MainView; // constructor() {
- //   super();
- //   this.state = {
- //     movies: [],
- //     selectedMovie: null,
- //     user: null
- //   };
- // }
- // componentDidMount(){
- //   axios.get('https://myflixdb9001.herokuapp.com/movies')
- //   .then(response => {
- //     this.setState({
- //       movies: response.data
- //     });
- //   })
- //   .catch(error => {
- //     console.log(error);
- //   });
- // }
+exports.default = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
 
@@ -25393,7 +25392,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"c0x1x":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../signup-view/signup-view":"1N5aj","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"c0x1x":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -25658,44 +25657,42 @@ var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 const LoginView = ()=>{
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-    // console.log(username, password);
+    const handleSubmit = (event)=>{
+        event.preventDefault();
     };
-    // const data = {
-    //   Username: username,
-    //   Password: password
-    // };
-    // fetch("https://myflixdb9001.herokuapp.com/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify(data)
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Login response: ", data);
-    //     if (data.user) {
-    //       onLoggedIn(data.user, data.token);
-    //     } else {
-    //       alert("No such user");
-    //     }
-    //   })
-    //   .catch((e) => {
-    //     alert("Something went wrong");
-    //   });
+    const data = {
+        Username: username,
+        Password: password
+    };
+    fetch("https://myflixdb9001.herokuapp.com/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then((response)=>response.json()
+    ).then((data1)=>{
+        console.log("Login response: ", data1);
+        if (data1.user) onLoggedIn(data1.user, data1.token);
+        else alert("No such user");
+    }).catch((e)=>{
+        alert("Something went wrong");
+    });
+    if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.token);
+        onLoggedIn(data.user, data.token);
+    } else alert("No such user");
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+        onSubmit: handleSubmit,
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 43
+            lineNumber: 50
         },
         __self: undefined,
         children: [
@@ -25703,25 +25700,28 @@ const LoginView = ()=>{
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 44
+                    lineNumber: 51
                 },
                 __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 45
+                            lineNumber: 52
                         },
                         __self: undefined,
-                        children: "Username"
+                        children: "Username:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                         type: "text",
+                        value: username,
                         onChange: (e)=>setUsername(e.target.value)
                         ,
+                        required: true,
+                        minLength: "6",
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 46
+                            lineNumber: 53
                         },
                         __self: undefined
                     })
@@ -25731,25 +25731,28 @@ const LoginView = ()=>{
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 49
+                    lineNumber: 62
                 },
                 __self: undefined,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 50
+                            lineNumber: 63
                         },
                         __self: undefined,
-                        children: "Password"
+                        children: "Password:"
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                         type: "password",
+                        value: password,
                         onChange: (e)=>setPassword(e.target.value)
                         ,
+                        required: true,
+                        minLength: "6",
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 51
+                            lineNumber: 64
                         },
                         __self: undefined
                     })
@@ -25758,32 +25761,21 @@ const LoginView = ()=>{
             /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                 variant: "primary",
                 type: "submit",
-                onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 53
+                    lineNumber: 72
                 },
                 __self: undefined,
                 children: "Submit"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                variant: "secondary",
-                type: "button",
-                __source: {
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 54
-                },
-                __self: undefined,
-                children: "Sign up"
             })
         ]
     }));
-};
+} // LoginView.propTypes = {
+ //   onLoggedIn: PropTypes.func.isRequired
+ // };
+;
 _s(LoginView, "Uz0+NXL0Cmp5Pn1AtssalVIVFlM=");
 _c = LoginView;
-LoginView.propTypes = {
-    onLoggedIn: _propTypesDefault.default.func.isRequired
-};
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -25792,7 +25784,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"5ykgY":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"5ykgY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -27715,7 +27707,211 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"2PRIq":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"1N5aj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0b8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0b8e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SignupView", ()=>SignupView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+// import PropTypes from 'prop-types';
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _s = $RefreshSig$();
+const SignupView = ()=>{
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        // console.log(username, password, email, birthday);
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        };
+        fetch("https://myflixdb9001.herokuapp.com/users", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (response.ok) {
+                alert("signup successful");
+                window.location.reload();
+            } else alert("Signup failed");
+        });
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+        onSubmit: handleSubmit,
+        __source: {
+            fileName: "src/components/signup-view/signup-view.jsx",
+            lineNumber: 42
+        },
+        __self: undefined,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 43
+                },
+                __self: undefined,
+                children: "Create Account"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 44
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 45
+                        },
+                        __self: undefined,
+                        children: "Username:"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 46
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 48
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 49
+                        },
+                        __self: undefined,
+                        children: "Password:"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "text",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 50
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 52
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 53
+                        },
+                        __self: undefined,
+                        children: "Email"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "text",
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 54
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 56
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 57
+                        },
+                        __self: undefined,
+                        children: "Birthday"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "birthday",
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 58
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                type: "submit",
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 60
+                },
+                __self: undefined,
+                children: "Sign up"
+            })
+        ]
+    }));
+}; // RegistrationView.propTypes = {
+ //   onRegistration: PropTypes.func.isRequired,
+ // };
+_s(SignupView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_c = SignupView;
+var _c;
+$RefreshReg$(_c, "SignupView");
+
+  $parcel$ReactRefreshHelpers$0b8e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Form":"5ykgY","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"2PRIq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");

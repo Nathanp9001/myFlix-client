@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -9,13 +9,11 @@ export const SignupView = () => {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(username, password, email, birthday);
-  
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
+    // console.log(username, password, email, birthday);
+  
 
     const data = {
       Username: username,
@@ -24,7 +22,7 @@ export const SignupView = () => {
       Birthday: birthday
     };
 
-    fetch("SIGNUP_URL", {
+    fetch("https://myflixdb9001.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -66,6 +64,6 @@ return (
 
 
 
-RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-};
+// RegistrationView.propTypes = {
+//   onRegistration: PropTypes.func.isRequired,
+// };
