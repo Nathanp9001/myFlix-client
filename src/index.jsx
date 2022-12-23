@@ -10,7 +10,7 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
   render() {
     return (
-      <Container>
+      <Container style={{border: "1px solid red"}}>
         <MainView />
       </Container>
     );
