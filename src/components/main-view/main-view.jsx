@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import { useState, useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
@@ -18,10 +20,6 @@ export const MainView = () => {
   useEffect(() => {
     if (!token) {
       return;
-    }
-
-    if (movies.length === 0) {
-      return <div>The list is empty!</div>;
     }
 
     fetch("https://myflixmoviedb.herokuapp.com/movies", {
@@ -46,31 +44,48 @@ export const MainView = () => {
       });
   }, [token]);
 
-  if (!user) {
-    return (
-      <>
-        <LoginView
-          onLoggedIn={(user, token) => {
+  return (
+    <Row className="justify-content-md-center">
+      {!user ? (
+        <Col md={5}>
+          <LoginView
+            onLoggedIn={(user, token) => {
             setUser(user);
             setToken(token);
           }}
-        />
-        or
-        <SignupView />
-      </>
-    );
-  }
-
-  if (selectedMovie) {
-    return (
-      <MovieView
+          />
+          or
+          <SignupView />
+        </Col>
+    ) : selectedMovie ? (
+      <>
+      <Col md={8}>
+        <MovieView
+        style={{ border: "1px solid green" }}
         movie={selectedMovie}
         onBackClick={() => setSelectedMovie(null)}
-      />
-    );
-  }
+        />
+      </Col>
+      </>
+      
+    ) : movies.length === 0 ? (
+      <div>The list is empty!</div>
+    ) : (
+    <>
+      {movies.map((movie) => (
+        <Col className="mb-5" key={movie.id} md={3}>
+        <MovieCard
+          movie={movie}
+          onMovieClick={(newSelectedMovie) => {
+            setSelectedMovie(newSelectedMovie);
+          }}
+        />
+        </Col>
+      ))}
+    </>
+    )}
 
-  <Button
+<Button
   variant="primary"
   type="button"
     onClick={() => {
@@ -80,21 +95,11 @@ export const MainView = () => {
     }}
   >
     Logout
-  </Button>;
-
-  return (
-    <div>
-      {movies.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
-    </div>
+  </Button>
+  </Row>
   );
 };
 
 export default MainView;
+
+
