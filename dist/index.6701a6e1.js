@@ -25267,6 +25267,8 @@ parcelHelpers.export(exports, "MainView", ()=>MainView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
@@ -25285,7 +25287,7 @@ const MainView = ()=>{
         if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 23
+                lineNumber: 24
             },
             __self: undefined,
             children: "The list is empty!"
@@ -25324,7 +25326,7 @@ const MainView = ()=>{
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 51
+                    lineNumber: 52
                 },
                 __self: undefined
             }),
@@ -25332,7 +25334,7 @@ const MainView = ()=>{
             /*#__PURE__*/ _jsxRuntime.jsx(_signupView.SignupView, {
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 58
+                    lineNumber: 59
                 },
                 __self: undefined
             })
@@ -25344,11 +25346,13 @@ const MainView = ()=>{
         ,
         __source: {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 65
+            lineNumber: 66
         },
         __self: undefined
     }));
-    /*#__PURE__*/ _jsxRuntime.jsx("button", {
+    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+        variant: "primary",
+        type: "button",
         onClick: ()=>{
             setUser(null);
             setToken(null);
@@ -25356,7 +25360,7 @@ const MainView = ()=>{
         },
         __source: {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 72
+            lineNumber: 73
         },
         __self: undefined,
         children: "Logout"
@@ -25364,7 +25368,7 @@ const MainView = ()=>{
     return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
         __source: {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 83
+            lineNumber: 86
         },
         __self: undefined,
         children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25374,7 +25378,7 @@ const MainView = ()=>{
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 85
+                    lineNumber: 88
                 },
                 __self: undefined
             }, movie.id)
@@ -25392,7 +25396,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../signup-view/signup-view":"1N5aj","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"054li":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../signup-view/signup-view":"1N5aj","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap/Button":"9CzHT"}],"054li":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$02dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

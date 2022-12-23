@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 import { useState, useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
@@ -69,7 +70,9 @@ export const MainView = () => {
     );
   }
 
-  <button
+  <Button
+  variant="primary"
+  type="button"
     onClick={() => {
       setUser(null);
       setToken(null);
@@ -77,7 +80,7 @@ export const MainView = () => {
     }}
   >
     Logout
-  </button>;
+  </Button>;
 
   return (
     <div>
