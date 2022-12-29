@@ -1,8 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movie }) => {
+  const { movieId } = useParams();
 
+  const movie = movies.find((m) => m.id === movieId);
 
     return (
       <div className="movie-view">
@@ -17,8 +21,9 @@ export const MovieView = ({ movie, onBackClick }) => {
           <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
-        <Button type="primary" onClick={() => { onBackClick(null); }}>Back</Button>
-
+        <Link to={`/`}>
+          <Button className="back-button">Back</Button>
+        </Link>
       </div>
     );
   };
