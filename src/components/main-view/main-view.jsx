@@ -1,64 +1,111 @@
-import React from 'react';
-import axios from 'axios';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Navbar from 'react-bootstrap/Navbar';
 
-import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
+import { useState, useEffect } from "react";
+import { LoginView } from "../login-view/login-view";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { SignupView } from "../signup-view/signup-view";
 
+export const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
+  const [token, setToken] = useState(storedToken ? storedToken : null);
 
-export class MainView extends React.Component{
-  constructor() {
-    super();
-    this.state = {
-      movies: [],
-      selectedMovie: null,
-      user: null
-    };
-  }
+  useEffect(() => {
+    if (!token) {
+      return;
+    }
 
-  componentDidMount(){
-    axios.get('https://myflixdb9001.herokuapp.com/movies')
-    .then(response => {
-      this.setState({
-        movies: response.data
-      });
+    fetch("https://myflixmoviedb.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` },
     })
-    .catch(error => {
-      console.log(error);
-    });
-  }
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("");
+      });
+  }, [token]);
 
-setSelectedMovie(movie) {
-  this.setState({
-    selectedMovie: movie
-  });
-}
+  useEffect(() => {
+    if (!token) return;
 
-onLoggedIn(user) {
-  this.setState({
-    user
-  });
-}
-
-
-render() {
-  const { movies, selectedMovie, user } = this.state;
-
-  if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
-  if (movies.length === 0) return <div className="main-view" />;
+    fetch("https://myflixdb9001.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((movies) => {
+        setMovies(movies);
+      });
+  }, [token]);
 
   return (
-    <div className="main-view">
-      {selectedMovie
-        ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-        : movies.map(movie => (
-          <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-        ))
-      }
-    </div>
-    );
-  }
-}
+    <>
+      <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">MyFlix Movies</Navbar.Brand>
+        <Button
+            variant="primary"
+            type="button"
+            size="sm"
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </Button>
+      </Container>
+    </Navbar>
+    <Row className="justify-content-md-center">
+      {!user ? (
+        <Col md={5}>
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+          or
+          <SignupView />
+        </Col>
+      ) : selectedMovie ? (
+        <>
+          <Col md={8}>
+            <MovieView
+              style={{ border: "1px solid green" }}
+              movie={selectedMovie}
+              onBackClick={() => setSelectedMovie(null)}
+            />
+          </Col>
+        </>
+      ) : movies.length === 0 ? (
+        <div>The list is empty!</div>
+      ) : (
+        <>
+          {movies.map((movie) => (
+            <Col className="mb-5" key={movie.id} md={3}>
+              <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
+          ))}
+        </>
+      )}
+    </Row>
+    </>
+  );
+};
 
 export default MainView;

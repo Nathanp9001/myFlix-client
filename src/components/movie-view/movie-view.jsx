@@ -1,10 +1,8 @@
-import React from 'react';
+import React from "react";
+import Button from "react-bootstrap/Button";
 
-export class MovieView extends React.Component {
+export const MovieView = ({ movie, onBackClick }) => {
 
-
-  render() {
-    const { movie, onBackClick } = this.props;
 
     return (
       <div className="movie-view">
@@ -19,9 +17,8 @@ export class MovieView extends React.Component {
           <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+        <Button type="primary" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div>
     );
-  }
-}
+  };
