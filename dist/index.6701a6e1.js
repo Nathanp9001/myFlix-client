@@ -25273,7 +25273,6 @@ var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
-// import Navbar from 'react-bootstrap/Navbar';
 var _reactRouterDom = require("react-router-dom");
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
@@ -25318,7 +25317,7 @@ const MainView = ()=>{
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
         __source: {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 51
+            lineNumber: 50
         },
         __self: undefined,
         children: [
@@ -25329,7 +25328,7 @@ const MainView = ()=>{
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 52
+                    lineNumber: 51
                 },
                 __self: undefined
             }),
@@ -25337,13 +25336,13 @@ const MainView = ()=>{
                 className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 58
+                    lineNumber: 57
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Routes, {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 59
+                        lineNumber: 58
                     },
                     __self: undefined,
                     children: [
@@ -25360,7 +25359,7 @@ const MainView = ()=>{
                             }),
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 60
+                                lineNumber: 59
                             },
                             __self: undefined
                         }),
@@ -25369,7 +25368,7 @@ const MainView = ()=>{
                             element: /*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
                                 children: user ? /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Navigate, {
                                     to: "/"
-                                }) : /*#__PURE__*/ _jsxRuntime.jsx("col", {
+                                }) : /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                     md: 5,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
                                         onLoggedIn: (user1)=>setUser(user1)
@@ -25378,7 +25377,7 @@ const MainView = ()=>{
                             }),
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 75
+                                lineNumber: 74
                             },
                             __self: undefined
                         }),
@@ -25399,7 +25398,7 @@ const MainView = ()=>{
                             }),
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 90
+                                lineNumber: 89
                             },
                             __self: undefined
                         }),
@@ -25424,7 +25423,7 @@ const MainView = ()=>{
                             }),
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 106
+                                lineNumber: 105
                             },
                             __self: undefined
                         })
@@ -25436,12 +25435,7 @@ const MainView = ()=>{
 };
 _s(MainView, "mlwcRecAzW7EtVXZARXeBBWQlmQ=");
 _c = MainView;
-exports.default = MainView; /* <LoginView
-      onLoggedIn={(user, token) => {
-      setUser(user);
-      setToken(token);
-       }}
-    /> */  // <LoginView onLoggedIn={(user) => setUser(user)} />
+exports.default = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
 
@@ -32667,7 +32661,7 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactRouter = require("react-router");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
-const MovieView = ({ movie  })=>{
+const MovieView = ({ movies  })=>{
     _s();
     const { movieId  } = _reactRouter.useParams();
     const movie = movies.find((m)=>m.id === movieId
@@ -33084,7 +33078,7 @@ const NavigationBar = ({ user , onLoggedOut  })=>{
                         lineNumber: 8
                     },
                     __self: undefined,
-                    children: "Books App"
+                    children: "myFlix"
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Toggle, {
                     "aria-controls": "basic-navbar-nav",

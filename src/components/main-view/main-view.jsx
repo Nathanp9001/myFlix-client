@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import Navbar from 'react-bootstrap/Navbar';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { useState, useEffect } from "react";
@@ -79,9 +78,9 @@ export const MainView = () => {
               {user ? (
                 <Navigate to="/" />
               ) : (
-                <col md={5}>
+                <Col md={5}>
                   <LoginView onLoggedIn={(user) => setUser(user)} />
-                </col>
+                </Col>
               )}
             </>
 
@@ -131,11 +130,3 @@ export const MainView = () => {
 
 export default MainView;
 
-/* <LoginView
-      onLoggedIn={(user, token) => {
-      setUser(user);
-      setToken(token);
-       }}
-    /> */
-
-    // <LoginView onLoggedIn={(user) => setUser(user)} />
