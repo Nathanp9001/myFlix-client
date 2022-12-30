@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import PropTypes from 'prop-types';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -77,13 +76,9 @@ return (
       required 
       />
     </Form.Group>
-    <Button type="submit">Sign up</Button>
+    <Button type="submit" className="button-primary">Sign up</Button>
   </Form>
   );
 };
 
 
-
-// RegistrationView.propTypes = {
-//   onRegistration: PropTypes.func.isRequired,
-// };

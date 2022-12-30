@@ -1,10 +1,33 @@
-// $primary: SeaGreen;
-// $body-bg: Honeydew;
+$primary-button: seagreen;
+$body-bg: rgb(240, 240, 240);
+$menu-bg: rgb(203, 151, 248);
 
-// @import '~bootstrap/scss/bootstrap.scss';
+body {
+  background-color: $body-bg;
+}
 
-// $color: steelblue;
+.button-primary {
+  background-color: $primary-button;
+  border-color: rgb(32, 95, 60);
+  margin-top: 10px;
+  &:hover {
+    background-color: rgb(34, 101, 63);
+  }
+}
 
-// .my-flix {
-//   color: $color;
-// }
+
+.navbar {
+  background-color: $menu-bg;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  .nav-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+  }
+  .nav-text {
+    font-size: large;
+    font-weight: 600;
+  }
+}
+

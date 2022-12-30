@@ -60,7 +60,7 @@ export const MainView = () => {
            path="/signup"
            element={
             <>
-              {!user ? (
+              {user ? (
                 <Navigate to="/" />
               ) : (
                 <Col md={5}>
