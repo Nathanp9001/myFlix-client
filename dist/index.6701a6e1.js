@@ -32480,48 +32480,45 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _card = require("react-bootstrap/Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
+var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 const MovieCard = ({ movie  })=>{
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
         className: "h-100",
         __source: {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 11
+            lineNumber: 10
         },
         __self: undefined,
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
                 variant: "top",
                 src: movie.ImagePath,
                 __source: {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 12
+                    lineNumber: 11
                 },
                 __self: undefined
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                 __source: {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 13
+                    lineNumber: 12
                 },
                 __self: undefined,
                 children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                         __source: {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 14
+                            lineNumber: 13
                         },
                         __self: undefined,
                         children: movie.Title
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Text, {
                         __source: {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 15
+                            lineNumber: 14
                         },
                         __self: undefined,
                         children: movie.Description
@@ -32530,14 +32527,14 @@ const MovieCard = ({ movie  })=>{
                         to: `/movies/${encodeURIComponent(movie.id)}`,
                         __source: {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 16
+                            lineNumber: 15
                         },
                         __self: undefined,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                            variant: "link",
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            className: "button-primary",
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 17
+                                lineNumber: 16
                             },
                             __self: undefined,
                             children: "Open"
@@ -32564,611 +32561,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"MoOk8":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _createWithBsPrefix = require("./createWithBsPrefix");
-var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
-var _divWithClassName = require("./divWithClassName");
-var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
-var _cardImg = require("./CardImg");
-var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
-var _cardHeader = require("./CardHeader");
-var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
-var _jsxRuntime = require("react/jsx-runtime");
-const DivStyledAsH5 = _divWithClassNameDefault.default('h5');
-const DivStyledAsH6 = _divWithClassNameDefault.default('h6');
-const CardBody = _createWithBsPrefixDefault.default('card-body');
-const CardTitle = _createWithBsPrefixDefault.default('card-title', {
-    Component: DivStyledAsH5
-});
-const CardSubtitle = _createWithBsPrefixDefault.default('card-subtitle', {
-    Component: DivStyledAsH6
-});
-const CardLink = _createWithBsPrefixDefault.default('card-link', {
-    Component: 'a'
-});
-const CardText = _createWithBsPrefixDefault.default('card-text', {
-    Component: 'p'
-});
-const CardFooter = _createWithBsPrefixDefault.default('card-footer');
-const CardImgOverlay = _createWithBsPrefixDefault.default('card-img-overlay');
-const defaultProps = {
-    body: false
-};
-const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , bg , text , border , body , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card');
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ref: ref,
-        ...props,
-        className: _classnamesDefault.default(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
-        children: body ? /*#__PURE__*/ _jsxRuntime.jsx(CardBody, {
-            children: children
-        }) : children
-    }));
-});
-Card.displayName = 'Card';
-Card.defaultProps = defaultProps;
-exports.default = Object.assign(Card, {
-    Img: _cardImgDefault.default,
-    Title: CardTitle,
-    Subtitle: CardSubtitle,
-    Body: CardBody,
-    Link: CardLink,
-    Text: CardText,
-    Header: _cardHeaderDefault.default,
-    Footer: CardFooter,
-    ImgOverlay: CardImgOverlay
-});
-
-},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./createWithBsPrefix":"8AqEH","./divWithClassName":"GBmBH","./CardImg":"5GKOF","./CardHeader":"3O5Ma","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"GBmBH":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _jsxRuntime = require("react/jsx-runtime");
-exports.default = (className)=>/*#__PURE__*/ _react.forwardRef((p, ref)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            ...p,
-            ref: ref,
-            className: _classnamesDefault.default(p.className, className)
-        })
-    )
-;
-
-},{"react":"6TuXu","classnames":"bOXOh","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"5GKOF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-const CardImg = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-({ bsPrefix , className , variant , as: Component = 'img' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-img');
-    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ref: ref,
-        className: _classnamesDefault.default(variant ? `${prefix}-${variant}` : prefix, className),
-        ...props
-    }));
-});
-CardImg.displayName = 'CardImg';
-exports.default = CardImg;
-
-},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"3O5Ma":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _cardHeaderContext = require("./CardHeaderContext");
-var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
-var _jsxRuntime = require("react/jsx-runtime");
-const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-header');
-    const contextValue = _react.useMemo(()=>({
-            cardHeaderBsPrefix: prefix
-        })
-    , [
-        prefix
-    ]);
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_cardHeaderContextDefault.default.Provider, {
-        value: contextValue,
-        children: /*#__PURE__*/ _jsxRuntime.jsx(Component, {
-            ref: ref,
-            ...props,
-            className: _classnamesDefault.default(className, prefix)
-        })
-    }));
-});
-CardHeader.displayName = 'CardHeader';
-exports.default = CardHeader;
-
-},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./CardHeaderContext":"axTEk","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"axTEk":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-const context = /*#__PURE__*/ _react.createContext(null);
-context.displayName = 'CardHeaderContext';
-exports.default = context;
-
-},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"ikZdr":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3741.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _reactRouter = require("react-router");
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-const MovieView = ({ movies  })=>{
-    _s();
-    const { movieId  } = _reactRouter.useParams();
-    const movie = movies.find((m)=>m.id === movieId
-    );
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
-        className: "movie-view",
-        __source: {
-            fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 12
-        },
-        __self: undefined,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                className: "movie-poster",
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 13
-                },
-                __self: undefined,
-                children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                    src: movie.ImagePath,
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 14
-                    },
-                    __self: undefined
-                })
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "movie-title",
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 16
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 17
-                        },
-                        __self: undefined,
-                        children: "Title: "
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 18
-                        },
-                        __self: undefined,
-                        children: movie.Title
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "movie-description",
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 20
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 21
-                        },
-                        __self: undefined,
-                        children: "Description: "
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 22
-                        },
-                        __self: undefined,
-                        children: movie.Description
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                to: `/`,
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 24
-                },
-                __self: undefined,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    className: "back-button",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 25
-                    },
-                    __self: undefined,
-                    children: "Back"
-                })
-            })
-        ]
-    }));
-};
-_s(MovieView, "e2L2DPdRH1AShA7yIOCsYRlzvlI=", false, function() {
-    return [_reactRouter.useParams];
-});
-_c = MovieView;
-var _c;
-$RefreshReg$(_c, "MovieView");
-
-  $parcel$ReactRefreshHelpers$3741.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-router":"1QSfs","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"1N5aj":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$0b8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$0b8e.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SignupView", ()=>SignupView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-var _s = $RefreshSig$();
-const SignupView = ()=>{
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const [email, setEmail] = _react.useState('');
-    const [birthday, setBirthday] = _react.useState('');
-    const handleSubmit = (event)=>{
-        event.preventDefault();
-        // console.log(username, password, email, birthday);
-        const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        };
-        fetch("https://myflixdb9001.herokuapp.com/users", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then((response)=>{
-            if (response.ok) {
-                alert("signup successful");
-                window.location.reload();
-            } else alert("Signup failed");
-        });
-    };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
-        onSubmit: handleSubmit,
-        __source: {
-            fileName: "src/components/signup-view/signup-view.jsx",
-            lineNumber: 41
-        },
-        __self: undefined,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h1", {
-                __source: {
-                    fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 42
-                },
-                __self: undefined,
-                children: "Create Account"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                __source: {
-                    fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 43
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 44
-                        },
-                        __self: undefined,
-                        children: "Username:"
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "username",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value)
-                        ,
-                        required: true,
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 45
-                        },
-                        __self: undefined
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                __source: {
-                    fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 52
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 53
-                        },
-                        __self: undefined,
-                        children: "Password:"
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "password",
-                        value: password,
-                        onChange: (e)=>setPassword(e.target.value)
-                        ,
-                        required: true,
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 54
-                        },
-                        __self: undefined
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                __source: {
-                    fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 61
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 62
-                        },
-                        __self: undefined,
-                        children: "Email"
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "text",
-                        value: email,
-                        onChange: (e)=>setEmail(e.target.value)
-                        ,
-                        required: true,
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 63
-                        },
-                        __self: undefined
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                __source: {
-                    fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 70
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 71
-                        },
-                        __self: undefined,
-                        children: "Birthday"
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                        type: "birthday",
-                        value: birthday,
-                        onChange: (e)=>setBirthday(e.target.value)
-                        ,
-                        required: true,
-                        __source: {
-                            fileName: "src/components/signup-view/signup-view.jsx",
-                            lineNumber: 72
-                        },
-                        __self: undefined
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                type: "submit",
-                className: "button-primary",
-                __source: {
-                    fileName: "src/components/signup-view/signup-view.jsx",
-                    lineNumber: 79
-                },
-                __self: undefined,
-                children: "Sign up"
-            })
-        ]
-    }));
-};
-_s(SignupView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
-_c = SignupView;
-var _c;
-$RefreshReg$(_c, "SignupView");
-
-  $parcel$ReactRefreshHelpers$0b8e.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Form":"5ykgY","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"eIfKi":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$10f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$10f6.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "NavigationBar", ()=>NavigationBar
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactBootstrap = require("react-bootstrap");
-var _reactRouterDom = require("react-router-dom");
-const NavigationBar = ({ user , onLoggedOut  })=>{
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
-        className: "navbar",
-        expand: "lg",
-        __source: {
-            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-            lineNumber: 7
-        },
-        __self: undefined,
-        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-            __source: {
-                fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                lineNumber: 8
-            },
-            __self: undefined,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
-                    className: "nav-title",
-                    as: _reactRouterDom.Link,
-                    to: "/",
-                    __source: {
-                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 9
-                    },
-                    __self: undefined,
-                    children: "myFlix"
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Toggle, {
-                    "aria-controls": "basic-navbar-nav",
-                    __source: {
-                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 12
-                    },
-                    __self: undefined
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Collapse, {
-                    className: "nav-text",
-                    id: "basic-navbar-nav",
-                    __source: {
-                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 13
-                    },
-                    __self: undefined,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
-                        className: "me-auto",
-                        __source: {
-                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                            lineNumber: 14
-                        },
-                        __self: undefined,
-                        children: [
-                            !user && /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                        as: _reactRouterDom.Link,
-                                        to: "/login",
-                                        __source: {
-                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 17
-                                        },
-                                        __self: undefined,
-                                        children: "Login"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                        as: _reactRouterDom.Link,
-                                        to: "/signup",
-                                        __source: {
-                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 20
-                                        },
-                                        __self: undefined,
-                                        children: "Signup"
-                                    })
-                                ]
-                            }),
-                            user && /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                        as: _reactRouterDom.Link,
-                                        to: "/",
-                                        __source: {
-                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 27
-                                        },
-                                        __self: undefined,
-                                        children: "Home"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                        onClick: onLoggedOut,
-                                        __source: {
-                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                            lineNumber: 30
-                                        },
-                                        __self: undefined,
-                                        children: "Logout"
-                                    })
-                                ]
-                            })
-                        ]
-                    })
-                })
-            ]
-        })
-    }));
-};
-_c = NavigationBar;
-var _c;
-$RefreshReg$(_c, "NavigationBar");
-
-  $parcel$ReactRefreshHelpers$10f6.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"h2YVd":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap":"h2YVd"}],"h2YVd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -35962,7 +35355,22 @@ CloseButton.propTypes = propTypes;
 CloseButton.defaultProps = defaultProps;
 exports.default = CloseButton;
 
-},{"prop-types":"1tgq3","react":"6TuXu","classnames":"bOXOh","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"j0oK8":[function(require,module,exports) {
+},{"prop-types":"1tgq3","react":"6TuXu","classnames":"bOXOh","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"GBmBH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _jsxRuntime = require("react/jsx-runtime");
+exports.default = (className)=>/*#__PURE__*/ _react.forwardRef((p, ref)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            ...p,
+            ref: ref,
+            className: _classnamesDefault.default(p.className, className)
+        })
+    )
+;
+
+},{"react":"6TuXu","classnames":"bOXOh","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"j0oK8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _anchor = require("@restart/ui/Anchor");
@@ -36117,7 +35525,128 @@ ButtonToolbar.displayName = 'ButtonToolbar';
 ButtonToolbar.defaultProps = defaultProps;
 exports.default = ButtonToolbar;
 
-},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"lNZc4":[function(require,module,exports) {
+},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"MoOk8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _createWithBsPrefix = require("./createWithBsPrefix");
+var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
+var _divWithClassName = require("./divWithClassName");
+var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
+var _cardImg = require("./CardImg");
+var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
+var _cardHeader = require("./CardHeader");
+var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
+var _jsxRuntime = require("react/jsx-runtime");
+const DivStyledAsH5 = _divWithClassNameDefault.default('h5');
+const DivStyledAsH6 = _divWithClassNameDefault.default('h6');
+const CardBody = _createWithBsPrefixDefault.default('card-body');
+const CardTitle = _createWithBsPrefixDefault.default('card-title', {
+    Component: DivStyledAsH5
+});
+const CardSubtitle = _createWithBsPrefixDefault.default('card-subtitle', {
+    Component: DivStyledAsH6
+});
+const CardLink = _createWithBsPrefixDefault.default('card-link', {
+    Component: 'a'
+});
+const CardText = _createWithBsPrefixDefault.default('card-text', {
+    Component: 'p'
+});
+const CardFooter = _createWithBsPrefixDefault.default('card-footer');
+const CardImgOverlay = _createWithBsPrefixDefault.default('card-img-overlay');
+const defaultProps = {
+    body: false
+};
+const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , bg , text , border , body , children , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div' , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card');
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ref: ref,
+        ...props,
+        className: _classnamesDefault.default(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
+        children: body ? /*#__PURE__*/ _jsxRuntime.jsx(CardBody, {
+            children: children
+        }) : children
+    }));
+});
+Card.displayName = 'Card';
+Card.defaultProps = defaultProps;
+exports.default = Object.assign(Card, {
+    Img: _cardImgDefault.default,
+    Title: CardTitle,
+    Subtitle: CardSubtitle,
+    Body: CardBody,
+    Link: CardLink,
+    Text: CardText,
+    Header: _cardHeaderDefault.default,
+    Footer: CardFooter,
+    ImgOverlay: CardImgOverlay
+});
+
+},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./createWithBsPrefix":"8AqEH","./divWithClassName":"GBmBH","./CardImg":"5GKOF","./CardHeader":"3O5Ma","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"5GKOF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+const CardImg = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+({ bsPrefix , className , variant , as: Component = 'img' , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-img');
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ref: ref,
+        className: _classnamesDefault.default(variant ? `${prefix}-${variant}` : prefix, className),
+        ...props
+    }));
+});
+CardImg.displayName = 'CardImg';
+exports.default = CardImg;
+
+},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"3O5Ma":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _cardHeaderContext = require("./CardHeaderContext");
+var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
+var _jsxRuntime = require("react/jsx-runtime");
+const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div' , ...props }, ref)=>{
+    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'card-header');
+    const contextValue = _react.useMemo(()=>({
+            cardHeaderBsPrefix: prefix
+        })
+    , [
+        prefix
+    ]);
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_cardHeaderContextDefault.default.Provider, {
+        value: contextValue,
+        children: /*#__PURE__*/ _jsxRuntime.jsx(Component, {
+            ref: ref,
+            ...props,
+            className: _classnamesDefault.default(className, prefix)
+        })
+    }));
+});
+CardHeader.displayName = 'CardHeader';
+exports.default = CardHeader;
+
+},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./CardHeaderContext":"axTEk","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"axTEk":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+const context = /*#__PURE__*/ _react.createContext(null);
+context.displayName = 'CardHeaderContext';
+exports.default = context;
+
+},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"lNZc4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
@@ -44273,6 +43802,484 @@ Tooltip.defaultProps = defaultProps;
 Tooltip.displayName = 'Tooltip';
 exports.default = Tooltip;
 
-},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./helpers":"S1Bw1","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"25uA3":[function() {},{}],"jUTZ8":[function() {},{}]},["klE6r","h9Oat","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./helpers":"S1Bw1","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t"}],"ikZdr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3741.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _reactRouter = require("react-router");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const MovieView = ({ movies  })=>{
+    _s();
+    const { movieId  } = _reactRouter.useParams();
+    const movie = movies.find((m)=>m.id === movie.movieId
+    );
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+        className: "movie-view",
+        __source: {
+            fileName: "src/components/movie-view/movie-view.jsx",
+            lineNumber: 12
+        },
+        __self: undefined,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                className: "movie-poster",
+                __source: {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 13
+                },
+                __self: undefined,
+                children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                    src: movie.ImagePath,
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 14
+                    },
+                    __self: undefined
+                })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                className: "movie-title",
+                __source: {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 16
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                        className: "label",
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 17
+                        },
+                        __self: undefined,
+                        children: "Title: "
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                        className: "value",
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 18
+                        },
+                        __self: undefined,
+                        children: movie.Title
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                className: "movie-description",
+                __source: {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 20
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                        className: "label",
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 21
+                        },
+                        __self: undefined,
+                        children: "Description: "
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                        className: "value",
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 22
+                        },
+                        __self: undefined,
+                        children: movie.Description
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                to: `/`,
+                __source: {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 24
+                },
+                __self: undefined,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                    className: "back-button",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 25
+                    },
+                    __self: undefined,
+                    children: "Back"
+                })
+            })
+        ]
+    }));
+};
+_s(MovieView, "e2L2DPdRH1AShA7yIOCsYRlzvlI=", false, function() {
+    return [_reactRouter.useParams];
+});
+_c = MovieView;
+var _c;
+$RefreshReg$(_c, "MovieView");
+
+  $parcel$ReactRefreshHelpers$3741.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-router":"1QSfs","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"1N5aj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0b8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0b8e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SignupView", ()=>SignupView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _s = $RefreshSig$();
+const SignupView = ()=>{
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        // console.log(username, password, email, birthday);
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        };
+        fetch("https://myflixdb9001.herokuapp.com/users", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (response.ok) {
+                alert("signup successful");
+                window.location.reload();
+            } else alert("Signup failed");
+        });
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+        onSubmit: handleSubmit,
+        __source: {
+            fileName: "src/components/signup-view/signup-view.jsx",
+            lineNumber: 41
+        },
+        __self: undefined,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 42
+                },
+                __self: undefined,
+                children: "Create Account"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 43
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 44
+                        },
+                        __self: undefined,
+                        children: "Username:"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "username",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 45
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 52
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 53
+                        },
+                        __self: undefined,
+                        children: "Password:"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 54
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 61
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 62
+                        },
+                        __self: undefined,
+                        children: "Email"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "text",
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 63
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 70
+                },
+                __self: undefined,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 71
+                        },
+                        __self: undefined,
+                        children: "Birthday"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                        type: "birthday",
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value)
+                        ,
+                        required: true,
+                        __source: {
+                            fileName: "src/components/signup-view/signup-view.jsx",
+                            lineNumber: 72
+                        },
+                        __self: undefined
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                type: "submit",
+                className: "button-primary",
+                __source: {
+                    fileName: "src/components/signup-view/signup-view.jsx",
+                    lineNumber: 79
+                },
+                __self: undefined,
+                children: "Sign up"
+            })
+        ]
+    }));
+};
+_s(SignupView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_c = SignupView;
+var _c;
+$RefreshReg$(_c, "SignupView");
+
+  $parcel$ReactRefreshHelpers$0b8e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Form":"5ykgY","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"eIfKi":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$10f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$10f6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "NavigationBar", ()=>NavigationBar
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+var _reactRouterDom = require("react-router-dom");
+const NavigationBar = ({ user , onLoggedOut  })=>{
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
+        className: "navbar",
+        expand: "lg",
+        __source: {
+            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+            lineNumber: 7
+        },
+        __self: undefined,
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+            __source: {
+                fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                lineNumber: 8
+            },
+            __self: undefined,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
+                    className: "nav-title",
+                    as: _reactRouterDom.Link,
+                    to: "/",
+                    __source: {
+                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                        lineNumber: 9
+                    },
+                    __self: undefined,
+                    children: "myFlix"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Toggle, {
+                    "aria-controls": "basic-navbar-nav",
+                    __source: {
+                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                        lineNumber: 12
+                    },
+                    __self: undefined
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Collapse, {
+                    className: "nav-text",
+                    id: "basic-navbar-nav",
+                    __source: {
+                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                        lineNumber: 13
+                    },
+                    __self: undefined,
+                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
+                        className: "me-auto",
+                        __source: {
+                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                            lineNumber: 14
+                        },
+                        __self: undefined,
+                        children: [
+                            !user && /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        as: _reactRouterDom.Link,
+                                        to: "/login",
+                                        __source: {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 17
+                                        },
+                                        __self: undefined,
+                                        children: "Login"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        as: _reactRouterDom.Link,
+                                        to: "/signup",
+                                        __source: {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 20
+                                        },
+                                        __self: undefined,
+                                        children: "Signup"
+                                    })
+                                ]
+                            }),
+                            user && /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        as: _reactRouterDom.Link,
+                                        to: "/",
+                                        __source: {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 27
+                                        },
+                                        __self: undefined,
+                                        children: "Home"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        as: _reactRouterDom.Link,
+                                        to: "/profile",
+                                        __source: {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 30
+                                        },
+                                        __self: undefined,
+                                        children: "Profile"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        onClick: onLoggedOut,
+                                        __source: {
+                                            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                            lineNumber: 33
+                                        },
+                                        __self: undefined,
+                                        children: "Logout"
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                })
+            ]
+        })
+    }));
+};
+_c = NavigationBar;
+var _c;
+$RefreshReg$(_c, "NavigationBar");
+
+  $parcel$ReactRefreshHelpers$10f6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"25uA3":[function() {},{}],"jUTZ8":[function() {},{}]},["klE6r","h9Oat","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
