@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 
 
 
-export const ProfileView = ({ user }) => {
+export const ProfileView = ({ users }) => {
   const { userId } = useParams();
 
   const user = users.find((u) => u._id === userId);
@@ -27,6 +27,6 @@ export const ProfileView = ({ user }) => {
         <span className="value">{user.Birthday}</span>
       </div>
     </div>
-  )
-}
+  );
+};
 

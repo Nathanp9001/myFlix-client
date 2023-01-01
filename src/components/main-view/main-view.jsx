@@ -3,13 +3,14 @@ import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useResolvedPath } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 
 export const MainView = () => {
@@ -118,6 +119,22 @@ export const MainView = () => {
                     </Col>
                   ))}
                 </>
+              )}
+            </>
+          }
+        />
+        <Route
+          path="/users/:userId"
+          element={
+            <>
+              {!user ? (
+                <Navigate to="/login" replace />
+              ) : user.length === 0 ? (
+                <Col>No such user found!</Col>
+              ) : (
+                <Col>
+                  <ProfileView user={user} />
+                </Col>
               )}
             </>
           }
