@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
 
-  const movie = movies.find((m) => m.id === movie.movieId);
-
+  const movie = movies.find((m) => m._id === movieId);
+ 
     return (
       <div className="movie-view">
         <div className="movie-poster">
