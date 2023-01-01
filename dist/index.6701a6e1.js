@@ -25413,6 +25413,7 @@ const MainView = ()=>{
                                 }) : /*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
                                     children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                                             className: "mb-5",
+                                            sm: 5,
                                             md: 3,
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                                                 movie: movie
@@ -30978,7 +30979,6 @@ const LoginView = ({ onLoggedIn  })=>{
                         ,
                         required: true,
                         minLength: "6",
-                        padding: "10px",
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 56
@@ -30993,7 +30993,7 @@ const LoginView = ({ onLoggedIn  })=>{
                 className: "button-primary",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 65
+                    lineNumber: 64
                 },
                 __self: undefined,
                 children: "Submit"
@@ -32492,6 +32492,7 @@ const MovieCard = ({ movie  })=>{
         __self: undefined,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
+                crossorigin: "anonymous",
                 variant: "top",
                 src: movie.ImagePath,
                 __source: {
@@ -32524,7 +32525,7 @@ const MovieCard = ({ movie  })=>{
                         children: movie.Description
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                        to: `/movies/${encodeURIComponent(movie.id)}`,
+                        to: `/movies/${encodeURIComponent(movie._id)}`,
                         __source: {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 15
@@ -32561,7 +32562,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap":"h2YVd"}],"h2YVd":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"h2YVd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -43816,17 +43817,16 @@ parcelHelpers.export(exports, "MovieView", ()=>MovieView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _reactBootstrap = require("react-bootstrap");
 var _reactRouter = require("react-router");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const MovieView = ({ movies  })=>{
     _s();
     const { movieId  } = _reactRouter.useParams();
-    const movie = movies.find((m)=>m.id === movie.movieId
+    const movie = movies.find((m)=>m._id === movieId
     );
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
         className: "movie-view",
         __source: {
             fileName: "src/components/movie-view/movie-view.jsx",
@@ -43834,7 +43834,8 @@ const MovieView = ({ movies  })=>{
         },
         __self: undefined,
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                md: 6,
                 className: "movie-poster",
                 __source: {
                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -43842,6 +43843,8 @@ const MovieView = ({ movies  })=>{
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                    className: "movie-img",
+                    crossorigin: "anonymous",
                     src: movie.ImagePath,
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
@@ -43850,78 +43853,77 @@ const MovieView = ({ movies  })=>{
                     __self: undefined
                 })
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "movie-title",
+            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
+                md: 6,
                 __source: {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 16
                 },
                 __self: undefined,
                 children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
+                    /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        className: "movie-title",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 17
                         },
                         __self: undefined,
-                        children: "Title: "
+                        children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 18
+                            },
+                            __self: undefined,
+                            children: movie.Title
+                        })
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
+                    /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                        className: "movie-description",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 18
+                            lineNumber: 20
                         },
                         __self: undefined,
-                        children: movie.Title
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                className: "label",
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 21
+                                },
+                                __self: undefined,
+                                children: "Description: "
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                className: "value",
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 22
+                                },
+                                __self: undefined,
+                                children: movie.Description
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                        to: `/`,
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 24
+                        },
+                        __self: undefined,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            className: "back-button button-primary",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 25
+                            },
+                            __self: undefined,
+                            children: "Back"
+                        })
                     })
                 ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "movie-description",
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 20
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 21
-                        },
-                        __self: undefined,
-                        children: "Description: "
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 22
-                        },
-                        __self: undefined,
-                        children: movie.Description
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                to: `/`,
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 24
-                },
-                __self: undefined,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    className: "back-button",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 25
-                    },
-                    __self: undefined,
-                    children: "Back"
-                })
             })
         ]
     }));
@@ -43938,7 +43940,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-router":"1QSfs","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"1N5aj":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-router":"1QSfs","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap":"h2YVd"}],"1N5aj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0b8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

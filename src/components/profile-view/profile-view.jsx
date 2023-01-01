@@ -1,5 +1,6 @@
 import React from "react";
 import React, {useState} from 'react';
+import { useParams } from "react-router";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
@@ -7,8 +8,9 @@ import Form from "react-bootstrap/Form";
 
 
 export const ProfileView = ({ user }) => {
+  const { userId } = useParams();
 
-  const user = users.find((u) => u.id === userId);
+  const user = users.find((u) => u._id === userId);
 
   return (
     <div className="profile-view">

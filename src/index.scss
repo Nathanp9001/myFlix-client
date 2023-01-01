@@ -15,9 +15,6 @@ body {
   }
 }
 
-.button-movie-card {
-  text-align: center;
-}
 
 
 .navbar {
@@ -33,6 +30,20 @@ body {
   .nav-text {
     font-size: large;
     font-weight: 600;
+  }
+}
+
+.movie-view {
+  .movie-title{
+    font-size: 60px;
+  }
+  .label {
+    font-weight: 700;
+  }
+  .movie-img {
+    float: left;
+    width: 100%;
+    margin-right: 40px;
   }
 }
 
