@@ -41,7 +41,7 @@ return (
   <Form  onSubmit={handleSubmit}>
     <h1>Create Account</h1>
     <Form.Group>
-      <Form.Label>Username:</Form.Label>
+      <Form.Label>Username: </Form.Label>
       <Form.Control 
       type="username" 
       value={username} 
@@ -50,7 +50,7 @@ return (
       />
     </Form.Group>
     <Form.Group>
-      <Form.Label>Password:</Form.Label>
+      <Form.Label>Password: </Form.Label>
       <Form.Control 
       type="password" 
       value={password} 
@@ -59,7 +59,7 @@ return (
       />
     </Form.Group>
     <Form.Group>
-      <Form.Label>Email</Form.Label>
+      <Form.Label>Email: </Form.Label>
       <Form.Control 
       type="text" 
       value={email} 
@@ -68,7 +68,7 @@ return (
       />
     </Form.Group>
     <Form.Group>
-      <Form.Label>Birthday</Form.Label>
+      <Form.Label>Birthday: </Form.Label>
       <Form.Control 
       type="birthday" 
       value={birthday} 

@@ -25430,7 +25430,7 @@ const MainView = ()=>{
                             __self: undefined
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                            path: "/users/:userId",
+                            path: "/profile",
                             element: /*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
                                 children: !user ? /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Navigate, {
                                     to: "/login",
@@ -25466,7 +25466,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Container":"2PRIq","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-router-dom":"jbMYE","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../signup-view/signup-view":"1N5aj","../navigation-bar/navigation-bar":"eIfKi","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","../profile-view/profile-view":"2E7Aw"}],"9CzHT":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Container":"2PRIq","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-router-dom":"jbMYE","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../signup-view/signup-view":"1N5aj","../profile-view/profile-view":"2E7Aw","../navigation-bar/navigation-bar":"eIfKi","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"9CzHT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -43961,7 +43961,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-router":"1QSfs","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap":"h2YVd"}],"1N5aj":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router":"1QSfs","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"1N5aj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0b8e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -44037,7 +44037,7 @@ const SignupView = ()=>{
                             lineNumber: 44
                         },
                         __self: undefined,
-                        children: "Username:"
+                        children: "Username: "
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                         type: "username",
@@ -44066,7 +44066,7 @@ const SignupView = ()=>{
                             lineNumber: 53
                         },
                         __self: undefined,
-                        children: "Password:"
+                        children: "Password: "
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                         type: "password",
@@ -44095,7 +44095,7 @@ const SignupView = ()=>{
                             lineNumber: 62
                         },
                         __self: undefined,
-                        children: "Email"
+                        children: "Email: "
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                         type: "text",
@@ -44124,7 +44124,7 @@ const SignupView = ()=>{
                             lineNumber: 71
                         },
                         __self: undefined,
-                        children: "Birthday"
+                        children: "Birthday: "
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                         type: "birthday",
@@ -44163,7 +44163,288 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Form":"5ykgY","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"eIfKi":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Form":"5ykgY","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"2E7Aw":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$58c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$58c6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+var _s = $RefreshSig$();
+const ProfileView = ({ user  })=>{
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email
+        };
+        fetch("https://myflixdb9001.herokuapp.com/users/:Username", {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (response.ok) {
+                alert("Changes saved");
+                window.location.reload();
+            } else alert("Something went wrong");
+        });
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
+        __source: {
+            fileName: "src/components/profile-view/profile-view.jsx",
+            lineNumber: 41
+        },
+        __self: undefined,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 42
+                },
+                __self: undefined,
+                children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "profile-info",
+                    __source: {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 43
+                    },
+                    __self: undefined,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                            className: "user-info",
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 44
+                            },
+                            __self: undefined,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "label",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 45
+                                    },
+                                    __self: undefined,
+                                    children: "Username: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 46
+                                    },
+                                    __self: undefined,
+                                    children: user.Username
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                            className: "user-info",
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 48
+                            },
+                            __self: undefined,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "label",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 49
+                                    },
+                                    __self: undefined,
+                                    children: "Email: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 50
+                                    },
+                                    __self: undefined,
+                                    children: user.Email
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                            className: "user-info",
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 52
+                            },
+                            __self: undefined,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "label",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 53
+                                    },
+                                    __self: undefined,
+                                    children: "Birthday: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 54
+                                    },
+                                    __self: undefined,
+                                    children: user.Birthday
+                                })
+                            ]
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 58
+                },
+                __self: undefined,
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
+                    onSubmit: handleSubmit,
+                    __source: {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 59
+                    },
+                    __self: undefined,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("h2", {
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 60
+                            },
+                            __self: undefined,
+                            children: "Update info"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 61
+                            },
+                            __self: undefined,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 62
+                                    },
+                                    __self: undefined,
+                                    children: "Username: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    type: "username",
+                                    value: username,
+                                    onChange: (e)=>setUsername(e.target.value)
+                                    ,
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 63
+                                    },
+                                    __self: undefined
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 69
+                            },
+                            __self: undefined,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 70
+                                    },
+                                    __self: undefined,
+                                    children: "Password: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    type: "password",
+                                    value: password,
+                                    onChange: (e)=>setPassword(e.target.value)
+                                    ,
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 71
+                                    },
+                                    __self: undefined
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 77
+                            },
+                            __self: undefined,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 78
+                                    },
+                                    __self: undefined,
+                                    children: "Email: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
+                                    type: "text",
+                                    value: email,
+                                    onChange: (e)=>setEmail(e.target.value)
+                                    ,
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 79
+                                    },
+                                    __self: undefined
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            type: "submit",
+                            className: "button-primary",
+                            __source: {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 85
+                            },
+                            __self: undefined,
+                            children: "Save Changes"
+                        })
+                    ]
+                })
+            })
+        ]
+    }));
+};
+_s(ProfileView, "aynwAZdNgcDEmsoEpp+mcQSpBRo=");
+_c = ProfileView;
+var _c;
+$RefreshReg$(_c, "ProfileView");
+
+  $parcel$ReactRefreshHelpers$58c6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap":"h2YVd"}],"eIfKi":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$10f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -44268,7 +44549,7 @@ const NavigationBar = ({ user , onLoggedOut  })=>{
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                         as: _reactRouterDom.Link,
-                                        to: `/users/${encodeURIComponent(user._id)}`,
+                                        to: "/profile",
                                         __source: {
                                             fileName: "src/components/navigation-bar/navigation-bar.jsx",
                                             lineNumber: 30
@@ -44303,138 +44584,6 @@ $RefreshReg$(_c, "NavigationBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"2E7Aw":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$58c6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$58c6.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouter = require("react-router");
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-var _s = $RefreshSig$();
-const ProfileView = ({ users  })=>{
-    _s();
-    const { userId  } = _reactRouter.useParams();
-    const user = users.find((u)=>u._id === userId
-    );
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
-        className: "profile-view",
-        __source: {
-            fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 16
-        },
-        __self: undefined,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "user-username",
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 17
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 18
-                        },
-                        __self: undefined,
-                        children: "Username: "
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 19
-                        },
-                        __self: undefined,
-                        children: user.Name
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "user-email",
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 21
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 22
-                        },
-                        __self: undefined,
-                        children: "Email: "
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 23
-                        },
-                        __self: undefined,
-                        children: user.Email
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                className: "user-birthday",
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 25
-                },
-                __self: undefined,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "label",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 26
-                        },
-                        __self: undefined,
-                        children: "Birthday: "
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "value",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 27
-                        },
-                        __self: undefined,
-                        children: user.Birthday
-                    })
-                ]
-            })
-        ]
-    }));
-};
-_s(ProfileView, "r0rqsLfWJTH7w5cXk9h+Af0W8oI=", false, function() {
-    return [_reactRouter.useParams];
-});
-_c = ProfileView;
-var _c;
-$RefreshReg$(_c, "ProfileView");
-
-  $parcel$ReactRefreshHelpers$58c6.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-router":"1QSfs","react-bootstrap/Button":"9CzHT","react-bootstrap/Form":"5ykgY","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"25uA3":[function() {},{}],"jUTZ8":[function() {},{}]},["klE6r","h9Oat","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"jbMYE","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21"}],"25uA3":[function() {},{}],"jUTZ8":[function() {},{}]},["klE6r","h9Oat","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
