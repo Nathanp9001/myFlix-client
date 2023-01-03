@@ -24,6 +24,12 @@ export const MovieView = ({ movies }) => {
           <Link to={`/`}>
             <Button className="back-button button-primary">Back</Button>
           </Link>
+          <Button 
+          className="button-add-favorite"
+          onClick={() => handleFavorite(movie._id, "add")}
+          >
+            + Add to Favorites
+          </Button>
         </Col>
       </Row>
     );

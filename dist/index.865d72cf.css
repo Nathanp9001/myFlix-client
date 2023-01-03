@@ -12,10 +12,11 @@ body {
 .button-primary {
   background-color: seagreen;
   border-color: rgb(32, 95, 60);
-  margin-top: 10px;
+  margin: 10px;
 }
 .button-primary:hover {
   background-color: rgb(34, 101, 63);
+  border-color: rgb(32, 95, 60);
 }
 
 .navbar {
@@ -49,5 +50,31 @@ body {
 .profile-info .user-info {
   font-size: x-large;
   padding: 15px;
+}
+
+.button-add-favorite {
+  background-color: goldenrod;
+  border-color: gold;
+  color: black;
+  font-weight: 600;
+  margin: 10px;
+}
+.button-add-favorite:hover {
+  color: black;
+  background-color: rgb(178, 135, 27);
+  border-color: gold;
+}
+
+.button-remove-favorite {
+  background-color: rgb(252, 48, 48);
+  border-color: maroon;
+  color: white;
+  font-weight: 500;
+  margin: 10px;
+}
+.button-remove-favorite:hover {
+  color: white;
+  background-color: rgb(209, 40, 40);
+  border-color: maroon;
 }
 /*# sourceMappingURL=index.865d72cf.css.map */

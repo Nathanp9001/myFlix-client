@@ -1,6 +1,10 @@
 import React from "react";
 import React, {useState} from 'react';
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, } from "react-bootstrap";
+
+
+import { MovieCard } from "../movie-card/movie-card";
+
 
 
 
@@ -11,6 +15,13 @@ export const ProfileView = ({ user }) => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
+  const [movies, setMovies] = useState([]);
+
+
+  let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();  
 
@@ -20,10 +31,11 @@ export const ProfileView = ({ user }) => {
       Email: email,
     };
 
-    fetch("https://myflixdb9001.herokuapp.com/users/:Username", {
+    fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }
     }).then((response) => {
@@ -85,6 +97,11 @@ export const ProfileView = ({ user }) => {
           <Button type="submit" className="button-primary">Save Changes</Button>
         </Form>
       </Col>
+      {movies.map((movie) => (
+      <Col className="mb-5" key={movie.id} sm={5} md={3}>
+        <MovieCard movie={movie} />
+      </Col>
+      ))}
     </Row>
   );
 };

@@ -43943,6 +43943,17 @@ const MovieView = ({ movies  })=>{
                             __self: undefined,
                             children: "Back"
                         })
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                        className: "button-add-favorite",
+                        onClick: ()=>handleFavorite(movie._id, "add")
+                        ,
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 27
+                        },
+                        __self: undefined,
+                        children: "+ Add to Favorites"
                     })
                 ]
             })
@@ -44178,12 +44189,16 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
+var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
 const ProfileView = ({ user  })=>{
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
+    const [movies, setMovies] = _react.useState([]);
+    let favoriteMovies = movies.filter((m)=>user.FavoriteMovies.includes(m._id)
+    );
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
@@ -44191,10 +44206,11 @@ const ProfileView = ({ user  })=>{
             Password: password,
             Email: email
         };
-        fetch("https://myflixdb9001.herokuapp.com/users/:Username", {
+        fetch("https://myflixdb9001.herokuapp.com/users/" + user.Username, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
+                Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
             }
         }).then((response)=>{
@@ -44207,21 +44223,21 @@ const ProfileView = ({ user  })=>{
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 41
+            lineNumber: 53
         },
         __self: undefined,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 42
+                    lineNumber: 54
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "profile-info",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 43
+                        lineNumber: 55
                     },
                     __self: undefined,
                     children: [
@@ -44229,7 +44245,7 @@ const ProfileView = ({ user  })=>{
                             className: "user-info",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 44
+                                lineNumber: 56
                             },
                             __self: undefined,
                             children: [
@@ -44237,7 +44253,7 @@ const ProfileView = ({ user  })=>{
                                     className: "label",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 45
+                                        lineNumber: 57
                                     },
                                     __self: undefined,
                                     children: "Username: "
@@ -44246,7 +44262,7 @@ const ProfileView = ({ user  })=>{
                                     className: "value",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 46
+                                        lineNumber: 58
                                     },
                                     __self: undefined,
                                     children: user.Username
@@ -44257,7 +44273,7 @@ const ProfileView = ({ user  })=>{
                             className: "user-info",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 48
+                                lineNumber: 60
                             },
                             __self: undefined,
                             children: [
@@ -44265,7 +44281,7 @@ const ProfileView = ({ user  })=>{
                                     className: "label",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 49
+                                        lineNumber: 61
                                     },
                                     __self: undefined,
                                     children: "Email: "
@@ -44274,7 +44290,7 @@ const ProfileView = ({ user  })=>{
                                     className: "value",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 50
+                                        lineNumber: 62
                                     },
                                     __self: undefined,
                                     children: user.Email
@@ -44285,7 +44301,7 @@ const ProfileView = ({ user  })=>{
                             className: "user-info",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 52
+                                lineNumber: 64
                             },
                             __self: undefined,
                             children: [
@@ -44293,7 +44309,7 @@ const ProfileView = ({ user  })=>{
                                     className: "label",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 53
+                                        lineNumber: 65
                                     },
                                     __self: undefined,
                                     children: "Birthday: "
@@ -44302,7 +44318,7 @@ const ProfileView = ({ user  })=>{
                                     className: "value",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 54
+                                        lineNumber: 66
                                     },
                                     __self: undefined,
                                     children: user.Birthday
@@ -44315,21 +44331,21 @@ const ProfileView = ({ user  })=>{
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 58
+                    lineNumber: 70
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                     onSubmit: handleSubmit,
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 59
+                        lineNumber: 71
                     },
                     __self: undefined,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 60
+                                lineNumber: 72
                             },
                             __self: undefined,
                             children: "Update info"
@@ -44337,14 +44353,14 @@ const ProfileView = ({ user  })=>{
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 61
+                                lineNumber: 73
                             },
                             __self: undefined,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 62
+                                        lineNumber: 74
                                     },
                                     __self: undefined,
                                     children: "Username: "
@@ -44356,7 +44372,7 @@ const ProfileView = ({ user  })=>{
                                     ,
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 63
+                                        lineNumber: 75
                                     },
                                     __self: undefined
                                 })
@@ -44365,14 +44381,14 @@ const ProfileView = ({ user  })=>{
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 69
+                                lineNumber: 81
                             },
                             __self: undefined,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 70
+                                        lineNumber: 82
                                     },
                                     __self: undefined,
                                     children: "Password: "
@@ -44384,7 +44400,7 @@ const ProfileView = ({ user  })=>{
                                     ,
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 71
+                                        lineNumber: 83
                                     },
                                     __self: undefined
                                 })
@@ -44393,14 +44409,14 @@ const ProfileView = ({ user  })=>{
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 77
+                                lineNumber: 89
                             },
                             __self: undefined,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 78
+                                        lineNumber: 90
                                     },
                                     __self: undefined,
                                     children: "Email: "
@@ -44412,7 +44428,7 @@ const ProfileView = ({ user  })=>{
                                     ,
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 79
+                                        lineNumber: 91
                                     },
                                     __self: undefined
                                 })
@@ -44423,18 +44439,37 @@ const ProfileView = ({ user  })=>{
                             className: "button-primary",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 85
+                                lineNumber: 97
                             },
                             __self: undefined,
                             children: "Save Changes"
                         })
                     ]
                 })
-            })
+            }),
+            movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                    className: "mb-5",
+                    sm: 5,
+                    md: 3,
+                    __source: {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 101
+                    },
+                    __self: undefined,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                        movie: movie,
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 102
+                        },
+                        __self: undefined
+                    })
+                }, movie.id)
+            )
         ]
     }));
 };
-_s(ProfileView, "aynwAZdNgcDEmsoEpp+mcQSpBRo=");
+_s(ProfileView, "JbWj8CwYw3J8QqQBO5FDbBeAZL0=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
@@ -44444,7 +44479,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","react-bootstrap":"h2YVd"}],"eIfKi":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"1PS0t","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"dsn21","../movie-card/movie-card":"6EiBJ"}],"eIfKi":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$10f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
