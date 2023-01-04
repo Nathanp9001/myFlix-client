@@ -133,7 +133,7 @@ export const MainView = () => {
                 <Col>No such user found!</Col>
               ) : (
                 <Col>
-                  <ProfileView user={user} />
+                  <ProfileView user={user} movies={movies} />
                 </Col>
               )}
             </>
