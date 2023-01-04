@@ -2,11 +2,37 @@ import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import React, {useState} from 'react';
+
 
 export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
 
   const movie = movies.find((m) => m._id === movieId);
+
+  const storedToken = localStorage.getItem("token");
+  const [token, setToken] = useState(storedToken ? storedToken : null);
+  
+
+  
+
+  const handleFavorite = () => {
+
+
+    fetch("https://myflixdb9001.herokuapp.com/users/{username}/movies/{m._id}", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert("Added to favorites!");
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  };
  
     return (
       <Row className="movie-view">
