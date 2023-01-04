@@ -39,8 +39,7 @@ export const ProfileView = ({ user, movies }) => {
     });
   };
 
-  const handleDeregister = (event) => {
-    event.preventDefault();  
+  const handleDeregister = () => {
 
     fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username, {
       method: "DELETE",
@@ -105,7 +104,7 @@ export const ProfileView = ({ user, movies }) => {
           </Form.Group>
           <Button type="submit" className="button-primary">Save Changes</Button>
         </Form>
-        <Button onSubmit={handleDeregister} className="button-delete" type="submit" variant="danger" >Delete Account</Button>
+        <Button onClick={() => handleDeregister(user._id)} className="button-delete" type="submit" variant="danger" >Delete Account</Button>
       </Col>
       <Row>
       {
