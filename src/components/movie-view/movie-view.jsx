@@ -33,6 +33,24 @@ export const MovieView = ({ movies }) => {
       }
     });
   };
+
+  const handleRemoveFavorite = () => {
+
+
+    fetch("https://myflixdb9001.herokuapp.com/users/{username}/movies/{m._id}", {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert("Removed from favorites");
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  };
  
     return (
       <Row className="movie-view">
@@ -55,6 +73,12 @@ export const MovieView = ({ movies }) => {
           onClick={() => handleFavorite(movie._id, "add")}
           >
             + Add to Favorites
+          </Button>
+          <Button 
+          variant="danger"
+          onClick={() => handleRemoveFavorite(movie._id, "add")}
+          >
+            Remove from Favorites
           </Button>
         </Col>
       </Row>

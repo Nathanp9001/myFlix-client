@@ -4,6 +4,9 @@ import { MovieCard } from "../movie-card/movie-card";
 
 export const ProfileView = ({ user, movies }) => {
 
+
+  const storedToken = localStorage.getItem("token");
+  const [token, setToken] = useState(storedToken ? storedToken : null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -36,6 +39,24 @@ export const ProfileView = ({ user, movies }) => {
     });
   };
 
+  const handleDeregister = (event) => {
+    event.preventDefault();  
+
+    fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert("Account successfully deleted");
+        window.location.reload();
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  };
 
   return (
     <Row>
@@ -84,6 +105,7 @@ export const ProfileView = ({ user, movies }) => {
           </Form.Group>
           <Button type="submit" className="button-primary">Save Changes</Button>
         </Form>
+        <Button onSubmit={handleDeregister} className="button-delete" type="submit" variant="danger" >Delete Account</Button>
       </Col>
       <Row>
       {
