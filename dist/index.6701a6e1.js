@@ -43849,9 +43849,11 @@ const MovieView = ({ movies  })=>{
     const movie = movies.find((m)=>m._id === movieId
     );
     const storedToken = localStorage.getItem("token");
+    const storedUser = JSON.parse(localStorage.getItem("user"));
     const [token, setToken] = _react.useState(storedToken ? storedToken : null);
+    const [user, setUser] = _react.useState(storedUser ? storedUser : null);
     const handleFavorite = ()=>{
-        fetch("https://myflixdb9001.herokuapp.com/users/{username}/movies/{m._id}", {
+        fetch("https://myflixdb9001.herokuapp.com/users/" + user.Username + "/movies/" + movie._id, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -43863,7 +43865,7 @@ const MovieView = ({ movies  })=>{
         });
     };
     const handleRemoveFavorite = ()=>{
-        fetch("https://myflixdb9001.herokuapp.com/users/{username}/movies/{m._id}", {
+        fetch("https://myflixdb9001.herokuapp.com/users/" + user.Username + "/movies/" + movie._id, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -43878,7 +43880,7 @@ const MovieView = ({ movies  })=>{
         className: "movie-view",
         __source: {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 56
+            lineNumber: 60
         },
         __self: undefined,
         children: [
@@ -43887,7 +43889,7 @@ const MovieView = ({ movies  })=>{
                 className: "movie-poster",
                 __source: {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 57
+                    lineNumber: 61
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -43896,7 +43898,7 @@ const MovieView = ({ movies  })=>{
                     src: movie.ImagePath,
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 58
+                        lineNumber: 62
                     },
                     __self: undefined
                 })
@@ -43905,7 +43907,7 @@ const MovieView = ({ movies  })=>{
                 md: 6,
                 __source: {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 60
+                    lineNumber: 64
                 },
                 __self: undefined,
                 children: [
@@ -43913,14 +43915,14 @@ const MovieView = ({ movies  })=>{
                         className: "movie-title",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 61
+                            lineNumber: 65
                         },
                         __self: undefined,
                         children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "value",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 62
+                                lineNumber: 66
                             },
                             __self: undefined,
                             children: movie.Title
@@ -43930,7 +43932,7 @@ const MovieView = ({ movies  })=>{
                         className: "movie-description",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 64
+                            lineNumber: 68
                         },
                         __self: undefined,
                         children: [
@@ -43938,7 +43940,7 @@ const MovieView = ({ movies  })=>{
                                 className: "label",
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 65
+                                    lineNumber: 69
                                 },
                                 __self: undefined,
                                 children: "Description: "
@@ -43947,7 +43949,7 @@ const MovieView = ({ movies  })=>{
                                 className: "value",
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 70
                                 },
                                 __self: undefined,
                                 children: movie.Description
@@ -43958,14 +43960,14 @@ const MovieView = ({ movies  })=>{
                         to: `/`,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 68
+                            lineNumber: 72
                         },
                         __self: undefined,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                             className: "back-button button-primary",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 69
+                                lineNumber: 73
                             },
                             __self: undefined,
                             children: "Back"
@@ -43977,7 +43979,7 @@ const MovieView = ({ movies  })=>{
                         ,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 71
+                            lineNumber: 75
                         },
                         __self: undefined,
                         children: "+ Add to Favorites"
@@ -43988,7 +43990,7 @@ const MovieView = ({ movies  })=>{
                         ,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 77
+                            lineNumber: 81
                         },
                         __self: undefined,
                         children: "Remove from Favorites"
@@ -43998,7 +44000,7 @@ const MovieView = ({ movies  })=>{
         ]
     }));
 };
-_s(MovieView, "B2ZQ6jmV9bFeYKJBbb8I3biaF6Q=", false, function() {
+_s(MovieView, "eSSRW/ihYLyLTdc6SDpJqvBYAbw=", false, function() {
     return [_reactRouter.useParams];
 });
 _c = MovieView;

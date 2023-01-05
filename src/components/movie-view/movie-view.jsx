@@ -9,9 +9,13 @@ export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
 
   const movie = movies.find((m) => m._id === movieId);
+  
 
   const storedToken = localStorage.getItem("token");
+  const storedUser = JSON.parse(localStorage.getItem("user"));
   const [token, setToken] = useState(storedToken ? storedToken : null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
+
   
 
   
@@ -19,7 +23,7 @@ export const MovieView = ({ movies }) => {
   const handleFavorite = () => {
 
 
-    fetch("https://myflixdb9001.herokuapp.com/users/{username}/movies/{m._id}", {
+    fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username+"/movies/"+movie._id, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -37,7 +41,7 @@ export const MovieView = ({ movies }) => {
   const handleRemoveFavorite = () => {
 
 
-    fetch("https://myflixdb9001.herokuapp.com/users/{username}/movies/{m._id}", {
+    fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username+"/movies/"+movie._id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
