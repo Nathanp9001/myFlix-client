@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import { Button, Form, Row, Col, } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 
@@ -12,6 +12,22 @@ export const ProfileView = ({ user, movies }) => {
   const [email, setEmail] = useState('');
 
   let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
+
+    // const data = {
+  //   Username: username,
+  //   Password: password,
+  //   Email: email,
+  // };
+
+  // useEffect(() => {
+  //   if (!token) return;
+
+  //   fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username, {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   })
+  //     .then((response) => response.json())
+  //     .then(localStorage.setItem("user", JSON.stringify(data.user)))
+  // }, [token]);
 
   const handleSubmit = (event) => {
     event.preventDefault();  
