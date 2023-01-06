@@ -1,33 +1,31 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Row, Col, } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 
-export const ProfileView = ({ user, movies }) => {
-
-
+export const ProfileView = ({ movies }) => {
   const storedToken = localStorage.getItem("token");
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
+  const storedUser = localStorage.getItem("user");
+  const [user, setUser] = useState(storedUser ? storedUser : null);
 
-    // const data = {
-  //   Username: username,
-  //   Password: password,
-  //   Email: email,
-  // };
+  let favoriteMovies = movies.filter((m) =>
+  user.FavoriteMovies.includes(m._id)
+  );
 
-  // useEffect(() => {
-  //   if (!token) return;
-
-  //   fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username, {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   })
-  //     .then((response) => response.json())
-  //     .then(localStorage.setItem("user", JSON.stringify(data.user)))
-  // }, [token]);
+const updateUser = (username) => {
+    fetch("https://myflixdb9001.herokuapp.com/users/" + username, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUser(data.user);
+        localStorage.setItem("user", JSON.stringify(data.user));
+      });
+};
 
   const handleSubmit = (event) => {
     event.preventDefault();  
@@ -38,17 +36,17 @@ export const ProfileView = ({ user, movies }) => {
       Email: email,
     };
 
-    fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username, {
+    fetch("https://myflixdb9001.herokuapp.com/users/" + user.Username, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
-      }
+      },
     }).then((response) => {
       if (response.ok) {
         alert("Changes saved");
-        window.location.reload();
+        updateUser(user.Username).then(() => window.location.reload());
       } else {
         alert("Something went wrong");
       }
