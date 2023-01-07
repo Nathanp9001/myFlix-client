@@ -14,26 +14,11 @@ import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
   const storedToken = localStorage.getItem("token");
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(storedUser ? storedUser : null);
-  const [token, setToken] = useState(storedToken ? storedToken : null);
-
-  useEffect(() => {
-    if (!token) {
-      return;
-    }
-
-    fetch("https://myflixmoviedb.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        localStorage.setItem("");
-      });
-  }, [token]);
+  const [token, ] = useState(storedToken ? storedToken : null);
 
   useEffect(() => {
     if (!token) return;
@@ -114,7 +99,7 @@ export const MainView = () => {
               ) : (
                 <>
                   {movies.map((movie) => (
-                    <Col className="mb-5" key={movie.id} sm={5} md={3}>
+                    <Col className="mb-5" key={movie._id} sm={5} md={3}>
                       <MovieCard movie={movie} />
                     </Col>
                   ))}

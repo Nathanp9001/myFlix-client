@@ -8,7 +8,7 @@ export const MovieCard = ({ movie }) => {
 
     return (
       <Card className="h-100">
-        <Card.Img crossorigin="anonymous" variant="top" src={movie.ImagePath} />
+        <Card.Img crossOrigin="anonymous" variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
