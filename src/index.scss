@@ -1,10 +1,87 @@
-// $primary: SeaGreen;
-// $body-bg: Honeydew;
+$primary-button: seagreen;
+$body-bg: rgb(240, 240, 240);
+$menu-bg: rgb(203, 151, 248);
 
-// @import '~bootstrap/scss/bootstrap.scss';
+body {
+  background-color: $body-bg;
+}
 
-// $color: steelblue;
+.button-primary {
+  background-color: $primary-button;
+  border-color: rgb(32, 95, 60);
+  margin: 10px;
+  &:hover {
+    background-color: rgb(34, 101, 63);
+    border-color: rgb(32, 95, 60);
 
-// .my-flix {
-//   color: $color;
-// }
+  }
+}
+
+
+
+.navbar {
+  background-color: $menu-bg;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 70px;
+  .nav-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+  }
+  .nav-text {
+    font-size: large;
+    font-weight: 600;
+  }
+}
+
+.movie-view {
+  .movie-title{
+    font-size: 60px;
+  }
+  .label {
+    font-weight: 700;
+  }
+  .movie-img {
+    float: left;
+    width: 100%;
+    margin-right: 40px;
+  }
+}
+
+.profile-info {
+  .user-info {
+    font-size: x-large;
+    padding: 15px;
+  }
+}
+
+.button-add-favorite {
+  background-color: goldenrod;
+  border-color: gold;
+  color: black;
+  font-weight: 600;
+  margin: 10px;
+  &:hover {
+    color: black;
+    background-color: rgb(178, 135, 27);
+    border-color: gold;
+  }
+}
+
+.button-remove-favorite {
+  background-color: rgb(252, 48, 48);
+  border-color: maroon;
+  color: white;
+  font-weight: 500;
+  margin: 10px;
+  &:hover {
+    color: white;
+    background-color: rgb(209, 40, 40);
+    border-color: maroon;
+  }
+}
+
+.button-delete {
+  margin: 10px;
+}

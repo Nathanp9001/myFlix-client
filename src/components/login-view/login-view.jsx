@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-// import PropTypes from 'prop-types';
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -62,13 +61,9 @@ export const LoginView = ({ onLoggedIn }) => {
           minLength="6"
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className="button-primary">
         Submit
       </Button>
     </Form>
   );
 };
-
-// LoginView.propTypes = {
-//   onLoggedIn: PropTypes.func.isRequired
-// };
