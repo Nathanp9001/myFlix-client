@@ -13,7 +13,6 @@ body {
   &:hover {
     background-color: rgb(34, 101, 63);
     border-color: rgb(32, 95, 60);
-
   }
 }
 
@@ -23,7 +22,7 @@ body {
   background-color: $menu-bg;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   .nav-title {
     font-size: 30px;
     font-weight: 600;

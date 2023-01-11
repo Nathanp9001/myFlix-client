@@ -12,6 +12,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { FilterGenre } from "../filter-genre/filter-genre";
 
 export const MainView = () => {
   const storedUser = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
@@ -40,6 +41,9 @@ export const MainView = () => {
           setUser(null);
         }}
        />
+      <Row>
+        <FilterGenre/>
+      </Row>
       <Row className="justify-content-md-center">
         <Routes>
           <Route 
