@@ -29,7 +29,6 @@
     "react-router-dom": "^6.6.1",
     "sass": "^1.57.1"
   },
-  "main": "index.js",
   "description": "",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.5.0"
