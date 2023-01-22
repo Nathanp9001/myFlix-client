@@ -18,8 +18,10 @@ export const MainView = () => {
   const storedUser = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
   const storedToken = localStorage.getItem("token");
   const [movies, setMovies] = useState([]);
+  const [genre, setGenre] = useState();
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, ] = useState(storedToken ? storedToken : null);
+
 
   useEffect(() => {
     if (!token) return;
@@ -29,9 +31,14 @@ export const MainView = () => {
     })
       .then((response) => response.json())
       .then((movies) => {
-        setMovies(movies);
+        if (genre) {
+          const filteredMovies = movies.filter((m) => m.Genre.Name === genre);
+          setMovies(filteredMovies);
+        } else {
+          setMovies(movies);
+        }
       });
-  }, [token]);
+  }, [token, user, genre]);
 
   return (
     <BrowserRouter>
@@ -42,7 +49,7 @@ export const MainView = () => {
         }}
        />
       <Row>
-        <FilterGenre/>
+        <FilterGenre value={genre} onSelect={(genre) => setGenre(genre)} />
       </Row>
       <Row className="justify-content-md-center">
         <Routes>
