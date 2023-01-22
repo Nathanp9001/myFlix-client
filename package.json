@@ -28,7 +28,6 @@
     "react-router-dom": "^6.6.1",
     "regenerator-runtime": "^0.13.11"
   },
-  "main": "index.js",
   "description": "",
   "devDependencies": {
     "@babel/core": "^7.20.12",

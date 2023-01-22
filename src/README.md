@@ -1,6 +1,6 @@
 This is the client side for the myFLix web app
 
-It uses React, HTML, CSS, JS, SCSS, and JSX, transpiled by Parcel
+It uses React, HTML, CSS, JS, SCSS, React Bootstrap, and JSX, transpiled by Parcel
 
 It accesses an API at https://myflixdb9001.herokuapp.com
 
