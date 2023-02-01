@@ -4,12 +4,10 @@ import { Button, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-export const MovieView = () => {
+export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
-
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
   const movie = movies.find((m) => m._id === movieId);
-  
   const storedToken = localStorage.getItem("token");
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [token, setToken] = useState(storedToken ? storedToken : null);
