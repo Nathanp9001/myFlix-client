@@ -4,26 +4,14 @@ import { Button, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = () => {
   const { movieId } = useParams();
-  // const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const movie = movies.find((m) => m._id === movieId);
   const storedToken = localStorage.getItem("token");
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [user, setUser] = useState(storedUser ? storedUser : null);
-
-  useEffect(() => {
-    if (!token) return;
-
-    fetch("https://myflixdb9001.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => response.json())
-      .then((movies) => {
-        setMovies(movies);
-      });
-  }, [token]);
 
   const handleFavorite = () => {
     fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username+"/movies/"+movie._id, {
@@ -41,6 +29,18 @@ export const MovieView = ({ movies }) => {
     });
   };
 
+  useEffect(() => {
+    if (!token) return;
+
+    fetch("https://myflixdb9001.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((movies) => {
+          setMovies(movies);
+      });
+  }, [token, user]);
+
   const handleRemoveFavorite = () => {
     fetch("https://myflixdb9001.herokuapp.com/users/"+user.Username+"/movies/"+movie._id, {
       method: "DELETE",
@@ -53,7 +53,7 @@ export const MovieView = ({ movies }) => {
         alert("Removed from favorites");
         const newUser = {
           ...user,
-          FavoriteMovies: user.FavoriteMovies.filter((m) => m._id != movie._id)
+          FavoriteMovies: user.FavoriteMovies.filter((m) => m != movie._id)
         }
         updateUser(newUser);
       } else {
@@ -65,6 +65,10 @@ export const MovieView = ({ movies }) => {
   const updateUser = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     setUser(user);
+  }
+
+  if (!movie) {
+    return null;
   }
  
     return (
