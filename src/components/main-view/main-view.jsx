@@ -1,6 +1,4 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate, useResolvedPath } from "react-router-dom";
@@ -48,9 +46,6 @@ export const MainView = () => {
           setUser(null);
         }}
        />
-      <Row>
-        <FilterGenre value={genre} onSelect={(genre) => setGenre(genre)} />
-      </Row>
       <Row className="justify-content-md-center">
         <Routes>
           <Route 
@@ -93,7 +88,7 @@ export const MainView = () => {
                 <Col>The list is empty!</Col>
               ) : (
                 <Col md={8}>
-                  <MovieView movies={movies} />
+                  <MovieView />
                 </Col>
               )}
             </>
@@ -109,10 +104,11 @@ export const MainView = () => {
                 <Col>The list is empty!</Col>
               ) : (
                 <>
+                  <FilterGenre value={genre} onSelect={(genre) => setGenre(genre)} />
                   {movies.map((movie) => (
-                    <Col className="mb-5" key={movie._id} sm={5} md={3}>
-                      <MovieCard movie={movie} />
-                    </Col>
+                      <Col className="mb-5" key={movie._id} sm={5} md={3}>
+                        <MovieCard movie={movie} />
+                      </Col>
                   ))}
                 </>
               )}
